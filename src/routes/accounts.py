@@ -99,7 +99,7 @@ async def register_user(
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail=f"A user with this email {user_data.email} already exists.",
+            detail="A user with this email already exists."
         )
 
     stmt = select(UserGroupModel).where(UserGroupModel.name == UserGroupEnum.USER)
